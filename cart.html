@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link href="css/popup.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+	<a id="contact">เลือกสินค้า</a>
+	<div class="messagepop  pop">
+		<h1>Product List</h1>
+	
+		<div class="search">
+			<input id="searchP">
+		</div>
+		<div class="products">
+			<script id="productTemplate" type="text/template">
+				<img width="80" height="80" src=<%= img %> >
+				<button><%= name %></input>
+			</script>
+		</div>
+	</div>
+
+	<h1>Cart</h1>
+
+	<div class="productcarts">
+		<script id="cartTemplate" type="text/template">
+			<img width="25" height="25" src=<%= img %> >
+			<span class="pname"><%= name %></span> :  
+			<span class="pprice"><%= price %></span> x 
+			<span><%= quantity %></span> :: 
+			<span><%= (price*quantity) %></span>
+			<button class="add1">+</button> 
+			<button class="minus1">-</button>
+			<button class="del">del</button>
+		</script> 
+	</div>
+
+	<div id="orderdetail">
+		ค่าจัดส่ง : <span id="trans">0</span><br>
+		ลดราคา : <span id="dis">0</span><br>
+		รวม : <span id="total">0</span><br>
+		<button id="orderstate">ยืนยันออเดอร์</button>
+		<button id="link" style="display:none;">ส่ง link</button>
+		<button id="newOrder" style="display:none;">สร้างตะกร้าใหม่</button>
+	</div>
+
+
+<script src="js/underscore.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/cart.js"></script>
+
+</body>
+</html>

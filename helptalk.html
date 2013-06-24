@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link href="css/popup.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+</head>
+<body>
+
+	<div>  <!-- cart.js -->
+		<a id="contact">เลือกสินค้า</a>
+		<div class="messagepop  pop">
+			<h1>Product List</h1>
+		
+			<div class="search">
+				<input id="searchP">
+			</div>
+			<div class="products">
+				<script id="productTemplate" type="text/template">
+					<img width="80" height="80" src=<%= img %> >
+					<button><%= name %></input>
+				</script>
+			</div>
+		</div>
+
+		<h1>Cart</h1>
+
+		<div class="productcarts">
+			<script id="cartTemplate" type="text/template">
+				<img width="25" height="25" src=<%= img %> >
+				<span class="pname"><%= name %></span> :  
+				<span class="pprice"><%= price %></span> x 
+				<span><%= quantity %></span> :: 
+				<span><%= (price*quantity) %></span>
+				<button class="add1">+</button> 
+				<button class="minus1">-</button>
+				<button class="del">del</button>
+			</script> 
+		</div>
+
+		<div id="orderdetail">
+			ค่าจัดส่ง : <span id="trans">0</span><br>
+			ลดราคา : <span id="dis">0</span><br>
+			รวม : <span id="total">0</span><br>
+			<button id="orderstate">ยืนยันออเดอร์</button>
+			<button id="link" style="display:none;">ส่ง link</button>
+			<button id="newOrder" style="display:none;">สร้างตะกร้าใหม่</button>
+		</div>
+	</div>
+
+	<div> <!--chat.js-->
+		<div id="chatfilter">
+			<button id='filall'>ทั้งหมด</button>
+			<button id='filask'>สอบถาม</button>
+			<button id='filorder'>สั่งซื้อ</button>
+			<button id='filapprove'>ตรวจสอบ</button>
+			<button id='filwait'>รอส่ง</button>
+			<button id='filsend'>ส่งแล้ว</button>
+			search : <input id='searchchat'/>
+		</div>
+		<div class="chatlist">
+			<script id="chatlistTemplate" type="text/template">
+				<img width="25" height="25" src=<%= img %> >
+				<span><%= cusname %></span><br>
+			</script>
+		</div>
+
+		<div class="chatlog">
+
+			<script id="chatitemTemplate" type="text/template">
+				<img width="25" height="25" src=<%= img %> >
+				<span><%= chattime %></span><br>
+				<span><%= chattext %></span>   
+			</script>
+
+		</div>
+
+		<div id="chatcontrol">
+
+			<input id='chatBox'/>
+
+		</div>
+	</div>
+
+	<div> <!--confirmpayment.js-->
+		<h3>ยืนยันการชำระเงิน</h3>
+
+		<div class="paymentlist">
+			<script id="paymentTemplate" type="text/template">
+			วันที่<span><%= date %></span><br>
+			เวลา<span><%= time %></span><br>
+			ธนาคาร<span><%= bank %></span><br>
+			จำนวนเงิน<span><%= amount %></span><br>
+			</script>
+		</div>
+
+		<div class="confirmDetail">
+			สถานะ :: 
+			<span id="orderState">รอการตรวจสอบ</span><br>
+			<button id="ems">EMS : Tracking</button><br>
+			<span id="emstrack"></span><br>
+
+			<h3>ที่อยู่</h3>
+			<div id="address"></div><br>
+
+			<button id="unconfirm">ไม่ยืนยัน</button><br>
+			<button id="confirm">ยืนยันการชำระเงิน</button><br>
+		</div>
+	</div>
+
+	<div> <!--orderhistory.js-->
+		<table id='orderhistory' border=1>
+
+			<thead>
+				 <tr>
+		      		<th>รหัส</th>
+		      		<th>วันที่</th>
+		      		<th>ที่อยู่</th>
+		      		<th>สินค้า</th>
+		      		<th>จำนวน</th>
+		      		<th>ราคา</th>
+		      		<th>ส่วนลด</th>
+		      		<th>ค่าจัดส่ง</th>
+		      		<th>สุทธิ</th>
+		      		<th>สถานะ</th>
+		    	</tr>
+			</thead>
+
+			<script id="orderTemplate" type="text/template">
+					<td><%= oid%></td>
+					<td><%= date%></td>
+					<td><%= address%></td>
+					<td><%= product%></td>
+					<td><%= quantity%></td>
+					<td><%= price%></td>
+					<td><%= dis%></td>
+					<td><%= tran%></td>
+					<td><%= amount%></td>
+					<td><%= state%></td>
+			</script>
+		</table>
+	</div>
+
+	<div><!--payment.html-->
+		<h1>Order list</h1>
+
+	
+		<div class="paymentcarts">
+			<script id="paymentcartTemplate" type="text/template">
+				<img width="25" height="25" src=<%= img %> >
+				<span class="pname"><%= name %></span> :  
+				<span class="pprice"><%= price %></span> x 
+				<span><%= quantity %></span> :: 
+				<span><%= (price*quantity) %></span>
+				
+			</script> 
+		</div>
+
+		<div id="orderdetail">
+			ค่าจัดส่ง : <span id="trans">100</span><br>
+			ลดราคา : <span id="dis">0</span><br>
+			รวม : <span id="total">100</span><br>
+		</div>
+
+		<h4>ช่องทางการชำระเงิน</h4>
+		<div class="banklist">
+			<script id="bankTemplate" type="text/template">
+				<img width="25" height="25" src=<%= img %> >
+				<span class="desc"><%= desc %></span> :  
+			</script>
+		</div>
+
+		<div id="paymentDetail">
+			<h1> ยืนยันการชำระเงิน </h1>
+			
+				<input id="acc_id" placeholder="เลขที่บัญชี"/><br>
+				วันที่ : <input id="s_date" type="text"  /> <br>
+				เวลา : <input id="s_time" placeholder="ex. 13:21" />
+
+				<h4> ที่อยู่ - รับสินค้า</h4>
+
+				<textarea id="address" rows="8" cols="30">
+
+				</textarea><br>
+				<input id="province" placeholder="จังหวัด"/>
+				<input id="post"  placeholder="รหัสไปรษณีย์"/><br>
+
+				<button class="del">ยืนยัน</button>
+
+			
+		</div> 
+	</div>
+
+
+
+
+
+<script src="js/underscore.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/confirmpayment.js"></script>
+<script src="js/orderhistory.js"></script>
+<script src="js/payment.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+</body>
+</html>

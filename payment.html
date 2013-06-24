@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+</head>
+<body>
+
+	<h1>Order list</h1>
+
+	
+	<div class="productcarts">
+		<script id="cartTemplate" type="text/template">
+			<img width="25" height="25" src=<%= img %> >
+			<span class="pname"><%= name %></span> :  
+			<span class="pprice"><%= price %></span> x 
+			<span><%= quantity %></span> :: 
+			<span><%= (price*quantity) %></span>
+			
+		</script> 
+	</div>
+
+	<div id="orderdetail">
+		ค่าจัดส่ง : <span id="trans">100</span><br>
+		ลดราคา : <span id="dis">0</span><br>
+		รวม : <span id="total">100</span><br>
+	</div>
+
+	<h4>ช่องทางการชำระเงิน</h4>
+	<div class="banklist">
+		<script id="bankTemplate" type="text/template">
+			<img width="25" height="25" src=<%= img %> >
+			<span class="desc"><%= desc %></span> :  
+		</script>
+	</div>
+
+	<div id="paymentDetail">
+		<h1> ยืนยันการชำระเงิน </h1>
+		
+			<input id="acc_id" placeholder="เลขที่บัญชี"/><br>
+			วันที่ : <input id="s_date" type="text"  /> <br>
+			เวลา : <input id="s_time" placeholder="ex. 13:21" />
+
+			<h4> ที่อยู่ - รับสินค้า</h4>
+
+			<textarea id="address" rows="8" cols="30">
+
+			</textarea><br>
+			<input id="province" placeholder="จังหวัด"/>
+			<input id="post"  placeholder="รหัสไปรษณีย์"/><br>
+
+			<button class="del">ยืนยัน</button>
+
+		
+	</div>
+
+<script src="js/underscore.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/payment.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+</body>
+</html>

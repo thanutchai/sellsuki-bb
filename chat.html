@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<div id="chatfilter">
+	<button id='filall'>ทั้งหมด</button>
+	<button id='filask'>สอบถาม</button>
+	<button id='filorder'>สั่งซื้อ</button>
+	<button id='filapprove'>ตรวจสอบ</button>
+	<button id='filwait'>รอส่ง</button>
+	<button id='filsend'>ส่งแล้ว</button>
+	search : <input id='searchchat'/>
+</div>
+<div class="chatlist">
+	<script id="chatlistTemplate" type="text/template">
+		<img width="25" height="25" src=<%= img %> >
+		<span><%= cusname %></span><br>
+	</script>
+</div>
+
+<div class="chatlog">
+
+	<script id="chatitemTemplate" type="text/template">
+		<img width="25" height="25" src=<%= img %> >
+		<span><%= chattime %></span><br>
+		<span><%= chattext %></span>   
+	</script>
+
+</div>
+
+<div id="chatcontrol">
+
+	<input id='chatBox'/>
+
+</div>
+
+
+
+<script src="js/underscore.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/chat.js"></script>
+
+</body>
+</html>
